@@ -31,7 +31,7 @@ function onSubmit(evt) {
 
   fetchImgAPI.fetchImg().then(img => {
     if (img.length === 0) {
-      return Notiflix.Notify.info('Sorry, there are no images matching your search query. Please try again.');
+      return Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.');
     }
 
     addVisibleBtnLoadMore();
