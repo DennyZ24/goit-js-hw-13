@@ -1,7 +1,131 @@
-/*
- * Главный файл стилей.
- * Все паршалы подключаются сюда.
- */
+@import 'modern-normalize/modern-normalize.css';
 
-// Стили для файла с примером HTML-фрагмента
-@import './example';
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+.search-form-container {
+  padding: 15px;
+
+  background-color: crimson;
+
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.search-form {
+  text-align: center;
+}
+
+.input-form {
+  padding: 10px;
+
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.button {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  overflow: hidden;
+  padding: 8px 20px;
+  margin: 0px 3px 6px;
+  text-align: center;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  text-decoration: none;
+  color: rgb(48, 48, 48);
+  white-space: nowrap;
+  z-index: 0;
+}
+
+.button i {
+  padding-right: 8px;
+}
+
+.submit::before {
+  position: absolute;
+  content: '';
+  background: rgb(255, 255, 255);
+  transition-duration: 0.3s;
+  z-index: -1;
+  inset: 0px auto auto 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+.submit:hover::before {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.submit:hover {
+  background: transparent;
+  color: rgb(255, 255, 255);
+  transition: color 0.3s ease 0s, background 0s ease 0s;
+}
+
+.button.load-more {
+  color: #fff;
+  border: 2px solid crimson;
+}
+
+.invisible {
+  opacity: 0;
+}
+
+.load-more::before {
+  position: absolute;
+  content: '';
+  background: crimson;
+  transition-duration: 0.3s;
+  z-index: -1;
+  inset: 0px auto auto 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+.load-more:hover::before {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.load-more:hover {
+  background: transparent;
+  color: rgb(0, 0, 0);
+  transition: color 0.3s ease 0s, background 0s ease 0s;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-top: calc(-1 * 10px);
+  margin-left: calc(-1 * 10px);
+}
+
+.photo-card {
+  flex-basis: calc(100% / 3 - 10px);
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+// .card-set {
+//   padding: 0;
+//   margin: 0;
+//   list-style: none;
+
+//   display: flex;
+//   flex-wrap: wrap;
+
+// .card-set > .item {
+//   flex-basis: calc(100% / 3 - var(--card-set-gap));
+//   margin-left: var(--card-set-gap);
+//   margin-top: var(--card-set-gap);
+// }
