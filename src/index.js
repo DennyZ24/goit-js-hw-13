@@ -20,6 +20,9 @@ function onSubmit(evt) {
   fetchImgAPI.searchQuery = query;
 
   if (fetchImgAPI.searchQuery.trim() === '') {
+    clearMarkup();
+    invisibleBtnLoadMore();
+
     return Notiflix.Notify.warning('Write something');
   };
   
