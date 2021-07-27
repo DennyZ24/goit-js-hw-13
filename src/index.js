@@ -37,7 +37,7 @@ function onSubmit(evt) {
     addVisibleBtnLoadMore();
 
     addImagesMurkup(img)
-  }).catch();
+  }).catch(error => console.log(error));
 }
 
 function onLoadMoreBtn() {

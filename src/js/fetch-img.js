@@ -17,7 +17,10 @@ export default class FetchImgAPI {
     this.incrementPage();
 
      return axios.get(url).then(function (response) {
-  
+      if (response.status !== 200) {
+        throw new Error(response.status);
+       }
+       
        return response.data.hits;
      })
   }
