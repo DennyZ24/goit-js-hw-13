@@ -10,19 +10,14 @@ export default class FetchImgAPI {
     this.maxPage = Math.round(500 / 40);
   }
 
-   fetchImg() {
+   async fetchImg() {
     const urlParams = `key=${MY_KEY}&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&per_page=40&page=${this.page}`
     const url = `${BASE_URL}/?${urlParams}`;
 
     this.incrementPage();
 
-     return axios.get(url).then(function (response) {
-      if (response.status !== 200) {
-        throw new Error(response.status);
-       }
-       
-       return response.data.hits;
-     })
+    const response = await axios.get(url);
+    return response.data.hits;
   }
 
   incrementPage() {
