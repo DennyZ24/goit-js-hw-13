@@ -16,10 +16,10 @@ export default class FetchImgAPI {
 
     this.incrementPage();
 
-    return axios.get(url).then(function (response) {
+     return axios.get(url).then(function (response) {
   
-      return response.data.hits; 
-    })
+       return response.data.hits;
+     })
   }
 
   incrementPage() {
