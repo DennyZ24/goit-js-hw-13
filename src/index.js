@@ -5,7 +5,7 @@ import './sass/main.scss';
 
 const formEl = document.querySelector('#search-form');
 const loadMoreBtn = document.querySelector('.load-more')
-const imagesGallery =document.querySelector('.gallery')
+const imagesGallery = document.querySelector('.gallery')
 
 formEl.addEventListener('submit', onSubmit);
 loadMoreBtn.addEventListener('click', onLoadMoreBtn);
@@ -25,14 +25,14 @@ function onSubmit(evt) {
 
     return Notiflix.Notify.warning('Write something');
   };
-  
+
   fetchImgAPI.resetPage();
 
   clearMarkup();
 
   invisibleBtnLoadMore();
 
-  fetchImgAPI.fetchImg().then(img => {                        
+  fetchImgAPI.fetchImg().then(img => {
     if (img.length === 0) {
       return Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.');
     }
@@ -44,14 +44,13 @@ function onSubmit(evt) {
 }
 
 function onLoadMoreBtn() {
-  if (fetchImgAPI.page > fetchImgAPI.maxPage) {
+  
+
+  fetchImgAPI.fetchImg().then(img => addImagesMurkup(img)).catch(error => {
     Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.");
 
     invisibleBtnLoadMore();
-    return
-    }
-
-  fetchImgAPI.fetchImg().then(img => addImagesMurkup(img)).catch();
+  });
 }
 
 function addImagesMurkup(images) {

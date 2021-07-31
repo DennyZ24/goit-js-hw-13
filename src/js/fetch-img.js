@@ -7,7 +7,6 @@ export default class FetchImgAPI {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
-    this.maxPage = Math.round(500 / 40);
   }
 
    async fetchImg() {
