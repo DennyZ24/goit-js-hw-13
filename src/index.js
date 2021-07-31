@@ -46,10 +46,19 @@ function onSubmit(evt) {
 function onLoadMoreBtn() {
   
 
-  fetchImgAPI.fetchImg().then(img => addImagesMurkup(img)).catch(error => {
-    Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.");
+  fetchImgAPI.fetchImg().then(img => {
+    console.log(img.length);
+    if (img.length < 40) {
+      Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.");
 
-    invisibleBtnLoadMore();
+      invisibleBtnLoadMore();
+    }
+    
+    addImagesMurkup(img);
+  }).catch(error => {
+    // Notiflix.Notify.failure("We're sorry, but you've reached the end of search results.");
+
+    // invisibleBtnLoadMore();
   });
 }
 
